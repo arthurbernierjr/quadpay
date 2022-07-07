@@ -11,3 +11,70 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); 
+  }
+80% {
+    transform: translateX(1rem); }
+100% {
+    opacity: 1;
+    transform: translate(0); } 
+}
+ul.payments-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  width: 75%;
+  background-color: #f0f1f1;
+  padding: 0;
+}
+
+li.payment-card {
+  display: flex;
+  width: calc(98% - 1rem);
+  background-color: ghostwhite;
+  color: #070707;
+  margin: 1rem;
+  justify-content: space-between;
+  box-shadow: 2px 4px 1px 4px gray;
+}
+li.payment-card:hover {
+  box-shadow: 2px 4px 8px 4px gray;
+  cursor: pointer;
+  transform: scale(1.15);
+  position: relative;
+}
+li.payment-card:hover h3 {
+  font-size: 1.2rem;
+  color: green;
+  animation: pop 1s ease-out;
+  transform: scale(1.2);
+}
+li.payment-card > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 1rem;
+}
+li.payment-card:hover .payment-amount::after {
+ position: absolute;
+ content: ' !!!';
+ bottom: 0;
+}
+.payment-amount::before {
+ content:"$";
+}
+li.payment-card:hover .payment-amount::before {
+  content: 'ONLY $';
+}
+
+li.payment-card:hover .payment-title::before {
+  content: 'Payment Due On ';
+}
